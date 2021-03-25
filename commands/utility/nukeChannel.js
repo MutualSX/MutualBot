@@ -11,13 +11,13 @@ ownerOnly: false,
 dmOnly:false,
 run: async (client, message, args, db) => {
     const Discord = require('discord.js')
-    const att = new Discord.MessageAttachment('../../static/images/nuke.gif')
-    const position = message.channel.position;
-    const rateLimitPerUser = message.channel.rateLimitPerUser;
-    var newChannel = await message.channel.clone()
+    const att = new Discord.MessageAttachment('./static/images/nuke.gif')
     message.channel.send(`**Nuking ${message.channel.name}..**`)
-    message.channel.delete();
-    newChannel.setPosition(position);
+    const position = message.channel.position
+    const rateLimitPerUser = message.channel.rateLimitPerUser
+    var newChannel = await message.channel.clone()
+    newChannel.setPosition(position)
+        message.channel.delete()
 
     newChannel.setRateLimitPerUser(rateLimitPerUser)
     newChannel.send(`**Nuked this channel, requested by <@${message.author.id}>.** ${client.emotes.success}`, att)

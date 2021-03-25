@@ -3,6 +3,16 @@ var owners = ['812905725760110624']
 const Discord = require("discord.js") , cooldowns = new Discord.Collection();
 module.exports.run = async (client, message) => {
   if (message.author.bot) return;
+  const noGuildEmbed = new Discord.MessageEmbed()
+ .setAuthor(message.author.username, message.author.displayAvatarURL({dynamic:true}))
+.setDescription(`Hello, thanks for using MutualBot! <a:fire:818008893904781333>
+
+Currently, all bot commands are only available in servers. If you would like to add me to your server, you can [click here](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=8&scope=bot) to add me to your server with the required permissions.
+
+- **Thanks for using MutualBot!** <a:BlobHello:820485469804036116>`)
+.setThumbnail(`https://cdn.discordapp.com/attachments/824753530254000179/824756953589874722/MutualBot_Logo.gif`)
+  .setFooter(client.user.username, `https://cdn.discordapp.com/attachments/824753530254000179/824756953589874722/MutualBot_Logo.gif`);
+  if(!message.guild) return message.channel.send(noGuildEmbed)
   if (!message.member.hasPermission ('ADMINISTRATOR')) {
     message.content.split (' ').forEach (m => {
     });
@@ -43,14 +53,9 @@ module.exports.run = async (client, message) => {
     command.botPermission.forEach (p => {
       if (!message.guild.me.hasPermission (p)) neededPerms.push ('`' + p + '`');
     });
-    let permissioa = new Discord.MessageEmbed()
-    .setAuthor(message.author.username, message.author.displayAvatarURL())
-    .setDescription(`
-   ${client.emotes.permissions} You can\'t use this command!
-    Required permissions: \`${neededPerms}\`
-    `)
-    .setFooter(client.user.username,client.user.displayAvatarURL())
-    .setTimestamp()
+    const permissioa = client.say(`${client.emotes.permissions} I don't have the permission to run that command!
+    Please add these permissions to me, then try again: \`${neededPerms}\``)
+    permissioa.setAuthor(message.author.username, message.author.displayAvatarURL({dynamic:true}))
     if (neededPerms.length) return message.channel.send(permissioa)
   }
   if(command.authorPermission) {
@@ -59,7 +64,9 @@ module.exports.run = async (client, message) => {
     command.authorPermission.forEach (p => {
       if (!message.member.hasPermission (p)) neededPerms.push ('`' + p + '`');
     });
-
+    const permissioa = client.say(`${client.emotes.permissions} You can\'t use this command!
+    Required permissions: \`${neededPerms}\``)
+    permissioa.setAuthor(message.author.username, message.author.displayAvatarURL({dynamic:true}))
     if (neededPerms.length)
     return message.channel.send(permissioa)
   }
