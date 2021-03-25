@@ -9,5 +9,6 @@ client.aliases = new Discord.Collection();
     require(`./handlers/${handler}`)(client);
 });
 client.emotes = require('./structures/Emotes.json')
+client.config = require('./config.json')
 
 client.login(token)

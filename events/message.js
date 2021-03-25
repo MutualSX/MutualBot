@@ -1,4 +1,5 @@
 const db = require('quick.db')
+var owners = ['812905725760110624']
 const Discord = require("discord.js") , cooldowns = new Discord.Collection();
 module.exports.run = async (client, message) => {
   if (message.author.bot) return;
@@ -83,7 +84,7 @@ module.exports.run = async (client, message) => {
         timestamps = cooldowns.get(command.cooldowns),
         cooldownAmount = (command.cooldowns || 3) * 1000;
   if (!timestamps.has(member.id)) {
-    if (!own.includes(message.author.id)) {
+    if (!owners.includes(message.author.id)) {
       timestamps.set(member.id, now);
     }
   } else {
