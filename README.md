@@ -1,20 +1,20 @@
 # Mutual
 
-*Mutual is a multipurpose utility Discord bot currently actively being worked on.*
+*Mutual is a multipurpose and utility Discord bot currently actively being worked on.*
 
 **More information will be released soon.**
 
 # Installation
 
 **Self-hosting currently is not recommended as the bot is in alpha and many bugs may occur,
-however steps are:**
+however you can follow these steps to get your own instance of the bot:**
 
 ```
-npm install
+npm install (install packages)
 ```
 
 Create & fill out `config.json`
 
 ```
-node index.js
+npm start / nodemon index.js
 ```
