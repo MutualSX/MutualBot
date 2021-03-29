@@ -1,5 +1,5 @@
 node_modules
 config.json
 file.js
-package-lock.json
 *.sqlite
+package-lock.json
