@@ -1,8 +1,9 @@
 const Discord = require('discord.js')
+const config = require('./config.json')
+const token = config.bot.token
 const client = new Discord.Client({presence: {
     status: 'idle'}})
     client.login(token) // login to discord
-const config = require('./config.json')
 const Command = require('./handlers/Command');
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
