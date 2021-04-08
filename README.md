@@ -1,20 +1,14 @@
 # Mutual
 
-*Mutual is a multipurpose utility Discord bot currently actively being worked on.*
+*Mutual is a multipurpose Discord bot designed to fit any user's needs.*
 
-**More information will be released soon.**
+# To Do
+- Switch database, planning to use Mongo because I dislike MySQL (Currently using Quick.db which sucks)
 
-# Installation
+- Add more commands (Bot is still in development though)
 
-**Self-hosting currently is not recommended as the bot is in alpha and many bugs may occur,
-however steps are:**
+# Invite the bot
 
-```
-npm install
-```
+The bot isn't currently public because there is few commands and features (but they are actively being worked on)
 
-Create & fill out `config.json`
-
-```
-node index.js
-```
+Self-hosting is not recommended because many bugs may occurr, however if you know what you are doing feel free. :)
